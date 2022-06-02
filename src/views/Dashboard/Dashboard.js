@@ -1,29 +1,14 @@
 import React from "react";
-// react plugin for creating charts
-import ChartistGraph from "react-chartist";
 // @material-ui/core
 import { makeStyles } from "@material-ui/core/styles";
 import FolderOpenIcon from "@material-ui/icons/FolderOpen";
 import ShareIcon from "@material-ui/icons/Share";
-import Icon from "@material-ui/core/Icon";
 // @material-ui/icons
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import LinearProgress from "@material-ui/core/LinearProgress";
 import "react-circular-progressbar/dist/styles.css";
 import KeyboardArrowRightIcon from "@material-ui/icons/KeyboardArrowRight";
 import photos from "assets/img/photos.png";
-import video from "assets/img/video.png";
-import Store from "@material-ui/icons/Store";
-import Warning from "@material-ui/icons/Warning";
-import DateRange from "@material-ui/icons/DateRange";
-import LocalOffer from "@material-ui/icons/LocalOffer";
-import Update from "@material-ui/icons/Update";
-import ArrowUpward from "@material-ui/icons/ArrowUpward";
-import AccessTime from "@material-ui/icons/AccessTime";
-import Accessibility from "@material-ui/icons/Accessibility";
-import BugReport from "@material-ui/icons/BugReport";
-import Code from "@material-ui/icons/Code";
-import Cloud from "@material-ui/icons/Cloud";
 // core components
 import GridItem from "components/Grid/GridItem.js";
 import GridContainer from "components/Grid/GridContainer.js";
@@ -31,28 +16,18 @@ import videos from "assets/img/Videos.svg";
 import music from "assets/img/Music.svg";
 import pics from "assets/img/Pics.svg";
 import download from "assets/img/Downloads.svg";
-import Table from "components/Table/Table.js";
-import Tasks from "components/Tasks/Tasks.js";
-import CustomTabs from "components/CustomTabs/CustomTabs.js";
-import Danger from "components/Typography/Danger.js";
 import Card from "components/Card/Card.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardIcon from "components/Card/CardIcon.js";
-import CardBody from "components/Card/CardBody.js";
 import CardFooter from "components/Card/CardFooter.js";
 import CloudUploadIcon from "@material-ui/icons/CloudUpload";
-import { bugs, website, server } from "variables/general.js";
-import SearchIcon from "@material-ui/icons/Search";
-import {
-  dailySalesChart,
-  emailsSubscriptionChart,
-  completedTasksChart,
-} from "variables/charts.js";
 
 import styles from "assets/jss/material-dashboard-react/views/dashboardStyle.js";
-import { Button, Input, OutlinedInput } from "@material-ui/core";
-import CustomInput from "components/CustomInput/CustomInput";
+import { Button, FormLabel, Select, TextField } from "@material-ui/core";
 import SearchField from "components/SearchField";
+import LineChart from "components/chart/LineChart";
+import DashboardModal from "./DashboardModal";
+import ModalTabs from "./ModalTabs";
 
 const useStyles = makeStyles(styles);
 
@@ -60,11 +35,19 @@ export default function Dashboard() {
   const classes = useStyles();
   const value = 3.52;
   const progress = 60;
+  const [openModal, setOpenModal] = React.useState(false);
+
+  const handleOpen = () => {
+    setOpenModal(true);
+  };
+
   return (
     <div>
       <GridContainer>
+        <DashboardModal openModal={openModal} setOpenModal={setOpenModal} />
         <GridItem xs={6} sm={6} md={6} style={{ marginBottom: "30px" }}>
           <Button
+            onClick={handleOpen}
             style={{
               backgroundColor: "#238ca5",
               color: "white",
@@ -504,11 +487,13 @@ export default function Dashboard() {
               style={{
                 border: "2px solid rgb(229, 229, 229)",
                 width: "100%",
-                margin: "0 auto",
+                marginBlockStart: "-82px",
                 borderRadius: "5px",
                 marginBottom: "15px",
               }}
-            ></div>
+            >
+              <LineChart />
+            </div>
           </GridItem>
         </GridContainer>
       </div>

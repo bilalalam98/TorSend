@@ -15,6 +15,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { useHistory } from "react-router-dom";
 import LoginPageImage from "assets/img/LoginPage.jpg";
 import CustomizedRadios from "components/Radio";
+import { auth } from "utils/apiMethods.js";
 
 const useStyles = makeStyles((theme) => ({
   root: {
