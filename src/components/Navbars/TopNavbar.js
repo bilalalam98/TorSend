@@ -17,6 +17,7 @@ import ViewList from "@material-ui/icons/ViewList";
 // core components
 import TopNavbarLinks from "./TopNavbarLinks";
 import Button from "components/CustomButtons/Button.js";
+import NotificationsNoneIcon from "@material-ui/icons/NotificationsNone";
 
 import styles from "assets/jss/material-dashboard-react/components/topNavbarStyle";
 

@@ -11,7 +11,6 @@ import Grow from "@material-ui/core/Grow";
 import Popper from "@material-ui/core/Popper";
 import MenuIcon from "@material-ui/icons/Menu";
 import { makeStyles } from "@material-ui/core";
-
 // importing useHistory from react-router-dom
 import { useHistory } from "react-router";
 
@@ -73,14 +72,29 @@ const ProfileMenu = (props) => {
                   }
                   className={dropdownItem}
                 >
-                  <span>
+                  <span
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-evenly",
+                      alignItems: "center",
+                      padding: "5px",
+                    }}
+                  >
                     {/* <img src={MenuIcon} alt="Box Logo" height="25" /> */}
                     <MenuIcon
                       alt="logo"
-                      size="md"
+                      fontSize="small"
                       className={classes.CustomerSettingIcon2}
                     />
-                    <span>{"Logout"}</span>
+                    <a
+                      style={{
+                        fontSize: "17px",
+                        fontWeight: "600",
+                        color: "inherit",
+                      }}
+                    >
+                      Logout
+                    </a>
                   </span>
                 </MenuItem>
               </MenuList>

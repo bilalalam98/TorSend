@@ -1,61 +1,18 @@
-import { primaryColor } from "assets/jss/material-dashboard-react";
 import {
   defaultFont,
   dangerColor,
   whiteColor,
-  hexToRgb,
-  blackColor,
   grayColor,
+  blackColor,
+  primaryColor,
+  hexToRgb,
 } from "assets/jss/material-dashboard-react";
 
 import customDropdownStyle from "assets/jss/material-dashboard-react/components/customDropdownStyle.js";
 
-const topNavbarLinkStyle = (theme) => ({
+const topNavbarLinksStyle = (theme) => ({
   ...customDropdownStyle(theme),
-  CustomerSettingIcon: {
-    border: "0",
-    width: "80%",
-    padding: "4px",
-    marginBlockEnd: "5px",
-    cursor: "pointer !important",
-    borderRadius: "5px",
-    "&:hover": {
-      backgroundColor: "hsla(0,0%,78%,.2)",
-      boxShadow: "none",
-    },
-  },
-  CustomerSettingIcon2: {
-    cursor: "pointer !important",
-    marginRight: "10px",
-    "&:hover": {
-      backgroundColor: "hsla(0,0%,78%,.2)",
-      boxShadow: "none",
-    },
-  },
-  search: {
-    margin: "0",
-    paddingTop: "7px",
-    paddingBottom: "7px",
-    [theme.breakpoints.down("sm")]: {
-      margin: "10px 15px",
-      float: "none !important",
-      paddingTop: "1px",
-      paddingBottom: "1px",
-      padding: "10px 15px",
-      width: "auto",
-    },
-  },
-  searchInput: {
-    paddingTop: "2px",
-  },
-  searchRTL: {
-    [theme.breakpoints.down("sm")]: {
-      marginRight: "18px !important",
-    },
-    [theme.breakpoints.up("md")]: {
-      marginLeft: "12px",
-    },
-  },
+
   linkText: {
     zIndex: "4",
     ...defaultFont,
@@ -84,18 +41,7 @@ const topNavbarLinkStyle = (theme) => ({
       },
     },
   },
-  searchButton: {
-    [theme.breakpoints.down("sm")]: {
-      top: "-50px !important",
-      marginRight: "38px",
-      float: "right",
-    },
-  },
   top: {
-    zIndex: "4",
-  },
-  searchIcon: {
-    width: "17px",
     zIndex: "4",
   },
   links: {
@@ -136,35 +82,6 @@ const topNavbarLinkStyle = (theme) => ({
       marginRight: "8px",
     },
   },
-  wrapperRTL: {
-    [theme.breakpoints.up("md")]: {
-      paddingLeft: "16px",
-    },
-  },
-  buttonLinkRTL: {
-    [theme.breakpoints.down("sm")]: {
-      alignItems: "center",
-      justifyContent: "flex-end",
-      width: "-webkit-fill-available",
-      margin: "10px 15px 0",
-      padding: "10px 15px",
-      display: "block",
-      position: "relative",
-    },
-  },
-  labelRTL: {
-    [theme.breakpoints.down("sm")]: {
-      flexDirection: "row-reverse",
-      justifyContent: "initial",
-      display: "flex",
-    },
-  },
-  linksRTL: {
-    [theme.breakpoints.down("sm")]: {
-      marginRight: "-5px !important",
-      marginLeft: "16px !important",
-    },
-  },
   managerClasses: {
     [theme.breakpoints.up("md")]: {
       display: "inline-block",
@@ -174,6 +91,55 @@ const topNavbarLinkStyle = (theme) => ({
     width: "20px !important",
     height: "20px !important",
   },
+  switchBase: {
+    color: primaryColor[0] + "!important",
+  },
+  switchIcon: {
+    boxShadow: "0 1px 3px 1px rgba(" + hexToRgb(blackColor) + ", 0.4)",
+    color: whiteColor + " !important",
+    border: "1px solid rgba(" + hexToRgb(blackColor) + ", .54)",
+  },
+  switchIconChecked: {
+    borderColor: primaryColor[0],
+    transform: "translateX(0px)!important",
+  },
+  switchBar: {
+    width: "30px",
+    height: "15px",
+    backgroundColor: "rgb(" + hexToRgb(grayColor[18]) + ")",
+    borderRadius: "15px",
+    opacity: "1.0 !important",
+  },
+  switchPrimary: {
+    "&.Mui-checked": {
+      color: "rgb(" + hexToRgb(primaryColor[0]) + ") !important",
+    },
+    "&.Mui-checked + .MuiSwitch-track": {
+      backgroundColor: "rgb(" + hexToRgb(primaryColor[0]) + ") !important",
+    },
+  },
+  marginRight: "4px",
+  loggedInUser: {
+    alignItem: "center",
+    color: "white",
+    display: "inline",
+  },
+  boldText: {
+    fontWeight: "400",
+    marginRight: "7px",
+    color: whiteColor,
+    fontSize: "20px",
+    display: "inline",
+  },
+  dotColor: {
+    backgroundColor: primaryColor[0] + " !important",
+  },
+  menuItem: {
+    marginRight: "10px",
+  },
+  iconSize: {
+    fontSize: "20px",
+  },
 });
 
-export default topNavbarLinkStyle;
+export default topNavbarLinksStyle;

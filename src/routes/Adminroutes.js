@@ -45,7 +45,7 @@ const Adminroutes = [
     component: DashboardPage,
     layout: "/admin",
   },
-  {
+  /* {
     path: "/user",
     name: "User Profile",
     rtlName: "ملف تعريفي للمستخدم",
@@ -108,7 +108,7 @@ const Adminroutes = [
     icon: Unarchive,
     component: UpgradeToPro,
     layout: "/admin",
-  },
+  },*/
 ];
 
 export default Adminroutes;
