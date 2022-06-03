@@ -65,7 +65,7 @@ export default function HeaderLinks() {
             <span className={classes.boldText}>{loggedInName}</span>
           </div>
           <Hidden mdUp implementation="css">
-            <span className={classes.linkText}>{"FullScreen"}</span>
+            <span className={classes.linkText}>{"Bilal ALam"}</span>
           </Hidden>
         </div>
         <a

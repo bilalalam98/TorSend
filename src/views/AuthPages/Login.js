@@ -81,7 +81,7 @@ const Login = () => {
   };
   return (
     <Grid container component="main" className={classes.root}>
-      <Grid item xs={6} sm={8} md={7}>
+      <Grid item xs={12} sm={8} md={7}>
         <div className={classes.maindiv}>
           <div className={classes.paper}>
             <Typography className={classes.heading} variant="h5">
@@ -159,7 +159,7 @@ const Login = () => {
           </div>
         </div>
       </Grid>
-      <Grid item xs={6} sm={4} md={5}>
+      <Grid item xs={12} sm={4} md={5}>
         <img src={LoginPageImage} style={{ width: "100%", height: "100vh" }} />
       </Grid>
     </Grid>

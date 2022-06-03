@@ -45,16 +45,8 @@ export default function Dashboard() {
     <div>
       <GridContainer>
         <DashboardModal openModal={openModal} setOpenModal={setOpenModal} />
-        <GridItem xs={6} sm={6} md={6} style={{ marginBottom: "30px" }}>
-          <Button
-            onClick={handleOpen}
-            style={{
-              backgroundColor: "#238ca5",
-              color: "white",
-              padding: "14px",
-              width: "30%",
-            }}
-          >
+        <GridItem xs={12} sm={12} md={6} style={{ marginBottom: "30px" }}>
+          <Button onClick={handleOpen} className={classes.SendButton}>
             <CloudUploadIcon
               style={{ marginRight: "12px", marginBottom: "4px" }}
             />
@@ -62,20 +54,12 @@ export default function Dashboard() {
           </Button>
         </GridItem>
         <GridItem
-          xs={6}
-          sm={6}
+          xs={12}
+          sm={12}
           md={6}
           style={{ display: "flex", justifyContent: "flex-end", zIndex: "10" }}
         >
-          <div
-            style={{
-              width: "353px",
-              height: "50px",
-              background: "#FFFFFF",
-              borderRadius: "5px",
-              padding: "5px",
-            }}
-          >
+          <div className={classes.seearchField}>
             <SearchField
               style={{
                 width: "100%",
@@ -98,7 +82,7 @@ export default function Dashboard() {
         }}
       >
         <GridContainer>
-          <GridItem xs={6} sm={12} md={6}>
+          <GridItem xs={12} sm={12} md={6}>
             <div
               style={{
                 border: "2px solid #E5E5E5",
@@ -117,10 +101,10 @@ export default function Dashboard() {
                 File Analytics
               </h5>
               <GridContainer style={{ marginLeft: "7px" }}>
-                <GridItem xs={2} md={2} sm={6}>
+                <GridItem xs={6} md={2} sm={6}>
                   <img src={pics} alt="logo" className={classes.img} />
                 </GridItem>
-                <GridItem xs={4} md={4} sm={6}>
+                <GridItem xs={6} md={4} sm={6}>
                   <a
                     style={{
                       color: "#41D1FF",
@@ -140,10 +124,10 @@ export default function Dashboard() {
                     2.36 Gb
                   </a>
                 </GridItem>
-                <GridItem xs={2} md={2} sm={6}>
+                <GridItem xs={6} md={2} sm={6}>
                   <img src={music} alt="logo" className={classes.img} />
                 </GridItem>
-                <GridItem xs={4} md={4} sm={6}>
+                <GridItem xs={6} md={4} sm={6}>
                   <a
                     style={{
                       color: "#41D1FF",
@@ -163,10 +147,10 @@ export default function Dashboard() {
                     2.36 Gb
                   </a>
                 </GridItem>
-                <GridItem style={{ margintop: "5px" }} xs={2} md={2} sm={6}>
+                <GridItem style={{ margintop: "5px" }} xs={6} md={2} sm={6}>
                   <img src={download} alt="logo" className={classes.img} />
                 </GridItem>
-                <GridItem style={{ margintop: "5px" }} xs={4} md={4} sm={6}>
+                <GridItem style={{ margintop: "5px" }} xs={6} md={4} sm={6}>
                   <a
                     style={{
                       color: "#41D1FF",
@@ -186,10 +170,10 @@ export default function Dashboard() {
                     2.36 Gb
                   </a>
                 </GridItem>
-                <GridItem style={{ margintop: "5px" }} xs={2} md={2} sm={6}>
+                <GridItem style={{ margintop: "5px" }} xs={6} md={2} sm={6}>
                   <img src={videos} alt="logo" className={classes.img} />
                 </GridItem>
-                <GridItem style={{ margintop: "5px" }} xs={4} md={4} sm={6}>
+                <GridItem style={{ margintop: "5px" }} xs={6} md={4} sm={6}>
                   <a
                     style={{
                       color: "#41D1FF",
@@ -212,7 +196,7 @@ export default function Dashboard() {
               </GridContainer>
             </div>
           </GridItem>
-          <GridItem xs={6} sm={12} md={6}>
+          <GridItem xs={12} sm={12} md={6}>
             <div
               style={{
                 border: "2px solid #E5E5E5",
@@ -233,7 +217,7 @@ export default function Dashboard() {
                 Subscription Details
               </a>
               <GridContainer style={{ marginLeft: "7px" }}>
-                <GridItem xs={6} md={6} sm={12} style={{ marginLeft: "6px" }}>
+                <GridItem xs={12} md={6} sm={12} style={{ marginLeft: "6px" }}>
                   <h3
                     style={{
                       marginTop: "10px",
@@ -297,7 +281,7 @@ export default function Dashboard() {
                     Upgrade
                   </Button>
                 </GridItem>
-                <GridItem xs={5} md={5} sm={12} style={{ marginLeft: "6px" }}>
+                <GridItem xs={12} md={5} sm={12} style={{ marginLeft: "6px" }}>
                   <div style={{ width: "55%", marginBottom: "10px" }}>
                     <CircularProgressbar
                       styles={buildStyles({
@@ -359,18 +343,7 @@ export default function Dashboard() {
                   />
                 </span>
               </div>
-              <div
-                style={{
-                  border: "2px solid rgb(229, 229, 229)",
-                  padding: "15px",
-                  width: "93%",
-                  margin: "0 auto",
-                  display: "flex",
-                  borderRadius: "5px",
-                  justifyContent: "space-between",
-                  marginBottom: "15px",
-                }}
-              >
+              <div className={classes.SendFiles}>
                 <img src={photos} alt="logo" style={{ width: "25px" }} />
                 <a
                   style={{
@@ -403,18 +376,7 @@ export default function Dashboard() {
                   485kb
                 </a>
               </div>
-              <div
-                style={{
-                  border: "2px solid rgb(229, 229, 229)",
-                  padding: "15px",
-                  width: "93%",
-                  margin: "0 auto",
-                  display: "flex",
-                  borderRadius: "5px",
-                  justifyContent: "space-between",
-                  marginBottom: "15px",
-                }}
-              >
+              <div className={classes.SendFiles}>
                 <img src={photos} alt="logo" style={{ width: "25px" }} />
                 <a
                   style={{
@@ -483,15 +445,7 @@ export default function Dashboard() {
           </GridItem>
           <GridItem xs={12} sm={6} md={6}></GridItem>
           <GridItem xs={12} sm={6} md={6}>
-            <div
-              style={{
-                border: "2px solid rgb(229, 229, 229)",
-                width: "100%",
-                marginBlockStart: "-82px",
-                borderRadius: "5px",
-                marginBottom: "15px",
-              }}
-            >
+            <div className={classes.chart}>
               <LineChart />
             </div>
           </GridItem>
