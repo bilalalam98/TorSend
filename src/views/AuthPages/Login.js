@@ -20,6 +20,9 @@ import { auth } from "utils/apiMethods.js";
 const useStyles = makeStyles((theme) => ({
   root: {
     height: "100%",
+    "@media (max-width: 600px)": {
+      background: "#275D9C",
+    },
   },
   image: {
     backgroundRepeat: "no-repeat",
@@ -67,6 +70,29 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: "40px",
     padding: "13px",
   },
+  logo: {
+    width: "100%",
+    height: "100vh",
+    "@media (max-width: 600px)": {
+      display: "none",
+    },
+  },
+  input: {
+    "& .MuiInputBase-input": {
+      "@media (max-width: 600px)": {
+        color: "white",
+      },
+    },
+  },
+  register: {
+    fontWeight: "600",
+    textDecoration: "none",
+    textDecorationColor: "#011464",
+    cursor: "pointer",
+    "@media (max-width: 600px)": {
+      color: "white",
+    },
+  },
 }));
 
 const Login = () => {
@@ -91,6 +117,7 @@ const Login = () => {
               <TextField
                 variant="outlined"
                 margin="normal"
+                className={classes.input}
                 required
                 fullWidth
                 id="email"
@@ -103,6 +130,7 @@ const Login = () => {
                 variant="outlined"
                 margin="normal"
                 required
+                className={classes.input}
                 fullWidth
                 name="password"
                 label="Password"
@@ -115,14 +143,7 @@ const Login = () => {
                   <CustomizedRadios label="Remember me" value="remember" />
                 </Grid>
                 <Grid item>
-                  <Link
-                    variant="body2"
-                    style={{
-                      fontWeight: "600",
-                      textDecoration: "none",
-                      textDecorationColor: "#011464",
-                    }}
-                  >
+                  <Link variant="body2" className={classes.register}>
                     Forgot password?
                   </Link>
                 </Grid>
@@ -138,17 +159,12 @@ const Login = () => {
               </Button>
               <Grid container>
                 <Grid item xs>
-                  <h7>
+                  <h7 style={{ color: "#aaaaaa" }}>
                     Don&apos;t have an account?{"   "}
                     <Link
                       onClick={Register}
                       variant="body2"
-                      style={{
-                        fontWeight: "600",
-                        textDecoration: "none",
-                        textDecorationColor: "#011464",
-                        cursor: "pointer",
-                      }}
+                      className={classes.register}
                     >
                       {"Register"}
                     </Link>
@@ -159,8 +175,8 @@ const Login = () => {
           </div>
         </div>
       </Grid>
-      <Grid item xs={12} sm={4} md={5}>
-        <img src={LoginPageImage} style={{ width: "100%", height: "100vh" }} />
+      <Grid item xs={false} sm={4} md={5}>
+        <img src={LoginPageImage} className={classes.logo} />
       </Grid>
     </Grid>
   );

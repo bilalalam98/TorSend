@@ -20,6 +20,9 @@ import { FormLabel, InputLabel, MenuItem, Select } from "@material-ui/core";
 const useStyles = makeStyles((theme) => ({
   root: {
     height: "100%",
+    "@media (max-width: 600px)": {
+      background: "#275D9C",
+    },
   },
   image: {
     backgroundRepeat: "no-repeat",
@@ -67,6 +70,28 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: "40px",
     padding: "13px",
   },
+  logo: {
+    width: "100%",
+    height: "100vh",
+    "@media (max-width: 600px)": {
+      display: "none",
+    },
+  },
+  input: {
+    "& .MuiInputBase-input": {
+      "@media (max-width: 600px)": {
+        color: "white",
+      },
+    },
+  },
+  selector: {
+    width: "100%",
+    height: "54px",
+    color: "black",
+    "@media (max-width: 600px)": {
+      color: "white",
+    },
+  },
 }));
 
 const Signup = () => {
@@ -83,8 +108,8 @@ const Signup = () => {
   };
   return (
     <Grid container component="main" className={classes.root}>
-      <Grid item xs={12} sm={4} md={5}>
-        <img src={LoginPageImage} style={{ width: "100%", height: "100vh" }} />
+      <Grid item xs={0} sm={4} md={5}>
+        <img src={LoginPageImage} className={classes.logo} />
       </Grid>
       <Grid item xs={12} sm={8} md={7}>
         <div className={classes.maindiv}>
@@ -104,6 +129,7 @@ const Signup = () => {
                   variant="outlined"
                   margin="normal"
                   required
+                  className={classes.input}
                   id="email"
                   label="First Name"
                   name="email"
@@ -116,6 +142,7 @@ const Signup = () => {
                   margin="normal"
                   required
                   id="email"
+                  className={classes.input}
                   label="Last Name"
                   name="email"
                   autoComplete="email"
@@ -134,6 +161,7 @@ const Signup = () => {
                   variant="outlined"
                   margin="normal"
                   required
+                  className={classes.input}
                   id="email"
                   label="Country"
                   name="email"
@@ -147,6 +175,7 @@ const Signup = () => {
                 margin="normal"
                 required
                 fullWidth
+                className={classes.input}
                 id="email"
                 label="Email Address"
                 name="email"
@@ -160,6 +189,7 @@ const Signup = () => {
                 fullWidth
                 name="password"
                 label="Password"
+                className={classes.input}
                 type="password"
                 id="password"
                 autoComplete="current-password"
@@ -168,7 +198,7 @@ const Signup = () => {
                 Select Plan
               </FormLabel>
               <Select
-                style={{ width: "100%", height: "54px" }}
+                className={classes.selector}
                 variant="outlined"
                 labelId="demo-simple-select-outlined-label"
                 Id="demo-simple-select-outlined-label"
