@@ -1,7 +1,7 @@
 // #region api URLs & endpoints
 export const URLs = {
   api_baseUrl: "https://baseurl",
-  loginUrl: `auth/login`,
+  loginUrl: `auth/signin`,
   registerUrl: "auth/register",
   forgotPasswordUrl: `auth/forgot_password`,
   verifyTokenUrl: "auth/verify_forgot_password_token",

@@ -13,7 +13,7 @@ const App = () => {
         <Route path="/auth" render={(props) => <AuthLayout {...props} />} />
         <Redirect exact from="/" to={usertoken ? "/admin" : "/auth"} />
         <ProtectedRoute />
-        <Redirect to="/auth/page-not-found" />
+        {/* <Redirect to="/auth/torsend" /> */}
       </Switch>
     </BrowserRouter>
   );

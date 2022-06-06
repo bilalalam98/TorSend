@@ -45,7 +45,7 @@ export default function Pages(props) {
          the user is login or not and route according to that */}
         <Switch>
           {getRoutes(appRoutes())}
-          <Redirect exact from="/auth" to="/auth/signin" />
+          <Redirect exact from="/auth" to="/auth/torsend" />
           <Redirect to="/auth/page-not-found" />
         </Switch>
       </div>

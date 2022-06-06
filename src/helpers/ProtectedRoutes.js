@@ -40,7 +40,6 @@ const ProtectedRoute = () => {
         </>
       );
     } else {
-      console.log("yeh hai gand");
       return <Redirect to="/auth/page-not-found" />;
     }
   }
