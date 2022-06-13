@@ -35,25 +35,32 @@ import NotificationsPage from "views/Notifications/Notifications.js";
 import UpgradeToPro from "views/UpgradeToPro/UpgradeToPro.js";
 // core components/views for RTL layout
 import RTLPage from "views/RTLPage/RTLPage.js";
+import SettingPage from "views/SettingPage";
+import SentFiles from "views/SentFiles";
 
 const Adminroutes = [
   {
     path: "/dashboard",
     name: "Dashboard",
-    rtlName: "لوحة القيادة",
     icon: Dashboard,
     component: DashboardPage,
     layout: "/admin",
   },
-  /* {
-    path: "/user",
-    name: "User Profile",
-    rtlName: "ملف تعريفي للمستخدم",
+  {
+    path: "/setting",
+    name: "Setting",
     icon: Person,
-    component: UserProfile,
+    component: SettingPage,
     layout: "/admin",
   },
   {
+    path: "/sent_files",
+    name: "Sent Files",
+    icon: "content_paste",
+    component: SentFiles,
+    layout: "/admin",
+  },
+  /* {
     path: "/table",
     name: "Table List",
     rtlName: "قائمة الجدول",
@@ -61,7 +68,7 @@ const Adminroutes = [
     component: TableList,
     layout: "/admin",
   },
-  {
+   {
     path: "/typography",
     name: "Typography",
     rtlName: "طباعة",
