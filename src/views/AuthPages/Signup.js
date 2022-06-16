@@ -151,7 +151,7 @@ const Signup = () => {
         console.log(body);
         let result = await auth.register(body);
         // localStorage.setItem("token", true);
-        // history.push("/auth/signin");
+        history.push("/auth/signin");
         console.log(result);
       } catch (err) {
         console.log(err);
