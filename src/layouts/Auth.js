@@ -40,7 +40,7 @@ export default function Pages(props) {
   };
   return (
     <div style={{ justifyContent: "center", alignItems: "center" }}>
-      <div ref={wrapper}>
+      <div ref={wrapper} style={{ height: "100vh" }}>
         {/* A function would be called here it will confirm wheather
          the user is login or not and route according to that */}
         <Switch>

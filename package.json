@@ -5,17 +5,18 @@
   "private": false,
   "main": "dist/index.js",
   "dependencies": {
-    "primeflex": "^3.1.0",
-    "primeicons": "^5.0.0",
-    "primereact": "^7.0.0",
     "@material-ui/core": "4.11.4",
     "@material-ui/icons": "4.11.2",
     "axios": "^0.27.2",
     "chart.js": "^3.8.0",
     "chartist": "0.10.1",
     "classnames": "2.3.1",
+    "formik": "^2.2.9",
     "history": "5.0.0",
     "perfect-scrollbar": "1.5.1",
+    "primeflex": "^3.1.0",
+    "primeicons": "^5.0.0",
+    "primereact": "^7.0.0",
     "prop-types": "15.7.2",
     "react": "17.0.2",
     "react-chartist": "0.14.4",
@@ -25,7 +26,8 @@
     "react-images-uploading": "^3.1.6",
     "react-router-dom": "5.2.0",
     "react-scripts": "4.0.3",
-    "react-swipeable-views": "^0.14.0"
+    "react-swipeable-views": "^0.14.0",
+    "yup": "^0.32.11"
   },
   "scripts": {
     "start": "react-scripts start",

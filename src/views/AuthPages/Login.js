@@ -16,6 +16,8 @@ import { useHistory } from "react-router-dom";
 import LoginPageImage from "assets/img/LoginPage.jpg";
 import CustomizedRadios from "components/Radio";
 import { auth } from "utils/apiMethods.js";
+import { useFormik } from "formik";
+import * as yup from "yup";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -34,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundPosition: "center",
   },
   maindiv: {
-    height: "100vh",
+    height: "100%",
     display: "flex",
     alignItems: "center",
   },
@@ -72,7 +74,7 @@ const useStyles = makeStyles((theme) => ({
   },
   logo: {
     width: "100%",
-    height: "100vh",
+    height: "100%",
     "@media (max-width: 600px)": {
       display: "none",
     },
@@ -84,6 +86,20 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   },
+  inputError: {
+    "& .MuiInputBase-input": {
+      borderColor: "#fc8181",
+      "@media (max-width: 600px)": {
+        color: "white",
+      },
+    },
+  },
+  error: {
+    color: "#fc8181",
+    fontSize: "0.75rem",
+    textAlign: "left",
+    marginTop: "0.25rem",
+  },
   register: {
     fontWeight: "600",
     textDecoration: "none",
@@ -94,14 +110,41 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
-
 const Login = () => {
   const classes = useStyles();
   const history = useHistory();
-  const Singin = () => {
-    localStorage.setItem("token", true);
-    history.push("/admin/dashboard");
-  };
+  const loginSchema = yup.object().shape({
+    username: yup.string().required("Field is Required"),
+    password: yup.string().required("Field is Required"),
+  });
+  const formik = useFormik({
+    initialValues: {
+      username: "",
+      password: "",
+    },
+    onSubmit: async (values, actions) => {
+      setLoading(true);
+      let body = {
+        username: values.username,
+        password: values.password,
+      };
+      try {
+        let result = await auth.login(body);
+        // localStorage.setItem("token", true);
+        history.push("/admin/dashboard");
+        console.log(result);
+      } catch (err) {
+        console.log(err);
+      }
+    },
+    validationSchema: loginSchema,
+  });
+  const [loading, setLoading] = React.useState(false);
+  // const [defaultValues, setDefaultValues] = React.useState({
+  //   username: "",
+  //   password: "",
+  // });
+
   const Register = () => {
     history.push("/auth/signup");
   };
@@ -117,27 +160,54 @@ const Login = () => {
               <TextField
                 variant="outlined"
                 margin="normal"
-                className={classes.input}
-                required
+                className={
+                  formik.touched.username && formik.errors.username
+                    ? classes.inputError
+                    : classes.input
+                }
+                onChange={formik.handleChange}
+                value={formik.values.username}
                 fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
+                id="username"
+                label="Username"
+                name="username"
+                error={
+                  formik.touched.username && formik.errors.username
+                    ? true
+                    : false
+                }
+                autoComplete="username"
                 autoFocus
               />
+              {formik.touched.username && formik.errors.username && (
+                <p className={classes.error}>{formik.errors.username}</p>
+              )}
               <TextField
                 variant="outlined"
                 margin="normal"
-                required
-                className={classes.input}
+                error={
+                  formik.touched.password && formik.errors.password
+                    ? true
+                    : false
+                }
+                className={
+                  formik.touched.password && formik.errors.password
+                    ? classes.inputError
+                    : classes.input
+                }
                 fullWidth
+                value={formik.values.password}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
                 name="password"
                 label="Password"
                 type="password"
                 id="password"
                 autoComplete="current-password"
               />
+              {formik.touched.password && formik.errors.password && (
+                <p className={classes.error}>{formik.errors.password}</p>
+              )}
               <Grid container>
                 <Grid item xs>
                   <CustomizedRadios label="Remember me" value="remember" />
@@ -152,7 +222,8 @@ const Login = () => {
                 fullWidth
                 variant="contained"
                 color="primary"
-                onClick={Singin}
+                disabled={formik.isSubmitting}
+                onClick={formik.handleSubmit}
                 className={classes.Button}
               >
                 Sign In

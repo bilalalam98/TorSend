@@ -1,5 +1,4 @@
 import { endpoints, api } from "./axios-config.js";
-
 export const auth = {
   // #region POST METHODS
   login: (body) => {
@@ -11,9 +10,8 @@ export const auth = {
   //   verifyToken: (body) => {
   //     return genericPostMethod(endpoints.auth.verifyTokenUrl, body);
   //   },
-  register: async (body) => {
-    const response = await api.put(endpoints.auth.registerUrl, body);
-    return response;
+  register: (body) => {
+    return genericPostMethod(endpoints.auth.registerUrl, body);
   },
   // #endregion
 };
@@ -46,7 +44,7 @@ export const dashboard = {
   },
 };
 // #region helper methods
-const genericPostMethod = async (endpoint, body) => {
-  const response = await api.post(endpoint, body);
+const genericPostMethod = async (endpoints, body) => {
+  const response = await api.post(endpoints, body);
   return response;
 };
