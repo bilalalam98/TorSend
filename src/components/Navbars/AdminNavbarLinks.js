@@ -21,6 +21,7 @@ import Button from "components/CustomButtons/Button.js";
 
 import styles from "assets/jss/material-dashboard-react/components/headerLinksStyle.js";
 import { useHistory } from "react-router-dom";
+import { NotificationManager } from "components/ReactNotifiaction";
 
 const useStyles = makeStyles(styles);
 
@@ -49,6 +50,7 @@ export default function AdminNavbarLinks() {
   const handleCloseProfile = () => {
     setOpenProfile(null);
     localStorage.clear();
+    NotificationManager.success("You have logout");
     history.push("/auth/signin");
   };
   return (

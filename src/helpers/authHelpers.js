@@ -1,5 +1,7 @@
 //import jwtDecode from "jwt-decode";
 
+import { NotificationManager } from "components/ReactNotifiaction";
+
 export const isInFullScreenFn = () => {
   return (
     (document.fullscreenElement && document.fullscreenElement !== null) ||
@@ -45,6 +47,7 @@ export const handleClickProfile = (event, openProfile, setOpenProfile) => {
 };
 export const handleCloseProfile = (history, setOpenProfile) => {
   localStorage.clear();
+  NotificationManager.success("You have logout successfully");
   history.push("/auth/signin");
   setOpenProfile(null);
 };
