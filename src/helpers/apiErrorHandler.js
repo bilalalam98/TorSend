@@ -1,4 +1,4 @@
-import { NotificationManager } from "components/common/ReactNotifications";
+import { NotificationManager } from "components/ReactNotifiaction";
 
 export const apiErrorHandler = (error, history) => {
   if (error.response === undefined) {

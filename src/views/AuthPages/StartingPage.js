@@ -150,8 +150,7 @@ const StartingPage = () => {
   const [show, setShow] = React.useState(false);
   const history = useHistory();
   const Singin = () => {
-    localStorage.setItem("token", true);
-    history.push("/admin/dashboard");
+    history.push("/auth/admin");
   };
   const Register = () => {
     history.push("/auth/signup");

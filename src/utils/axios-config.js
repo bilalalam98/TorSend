@@ -57,5 +57,6 @@ export const endpoints = {
   dashboard: {
     getUsersByRoleUrl: URLs.getUsersByRoleUrl,
     createNewUserUrl: URLs.createNewUserUrl,
+    setFiles: URLs.setFiles,
   },
 };

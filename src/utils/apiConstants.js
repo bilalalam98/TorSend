@@ -1,6 +1,6 @@
 // #region api URLs & endpoints
 export const URLs = {
-  api_baseUrl: "http://ec2-18-216-15-41.us-east-2.compute.amazonaws.com:3000/",
+  api_baseUrl: "http://3.145.23.31:3000/",
   loginUrl: `authentication/log-in`,
   register: `authentication/register`,
   refreshToken: `authentication/refresh-token`,
@@ -10,4 +10,6 @@ export const URLs = {
 
   // dashboard
   getdashboardUrl: "admin/dashboard",
+  //
+  setFiles: `s3-functions/get-all-files`,
 };

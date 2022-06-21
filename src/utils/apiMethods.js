@@ -42,9 +42,20 @@ export const dashboard = {
     );
     return response;
   },
+  // getAllFiles: async (body, id) => {
+  //   const response = await api.put(`${endpoints.dashboard.setFiles}${6}`, body);
+  //   return response;
+  // },
+  getAllFiles: async (session_id = session_id ? session_id : 6) => {
+    const response = await api.post(
+      `${endpoints.dashboard.setFiles}?session_id=${session_id}`
+    );
+    return response;
+  },
 };
 // #region helper methods
 const genericPostMethod = async (endpoints, body) => {
   const response = await api.post(endpoints, body);
+  console.log(response.status);
   return response;
 };

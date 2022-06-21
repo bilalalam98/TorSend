@@ -19,6 +19,8 @@ import CustomizedRadios from "components/Radio";
 import { FormLabel, InputLabel, MenuItem, Select } from "@material-ui/core";
 import { useFormik } from "formik";
 import * as yup from "yup";
+import { NotificationManager } from "components/ReactNotifiaction";
+import { apiErrorHandler } from "helpers/apiErrorHandler";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -134,7 +136,7 @@ const Signup = () => {
       country: "",
       username: "",
       phone_number: "",
-      plan_id: 0,
+      plan_id: 1,
     },
     onSubmit: async (values, actions) => {
       console.log(values);
@@ -143,18 +145,25 @@ const Signup = () => {
         email: values.email,
         password: values.password,
         country: values.country,
-        username: values.firstname + Math.floor(Math.random() * 100),
-        phone_number: values.phone_number,
+        fullname: {
+          first_name: values.firstname,
+          last_name: values.lastname,
+        },
+        //username: values.firstname + Math.floor(Math.random() * 100),
+        phone_number: "0" + values.phone_number,
         plan_id: values.plan_id,
       };
       try {
         console.log(body);
         let result = await auth.register(body);
-        // localStorage.setItem("token", true);
-        history.push("/auth/signin");
+        if (result.status === 201) {
+          NotificationManager.success("User Registered successfully");
+          history.push("/auth/signin");
+        }
         console.log(result);
       } catch (err) {
         console.log(err);
+        apiErrorHandler(err, history);
       }
     },
     validationSchema: SignupSchema,

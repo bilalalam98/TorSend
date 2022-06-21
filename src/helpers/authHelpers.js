@@ -69,7 +69,7 @@ export const handleCloseNotifications = (setOpenNotifications) => {
 };
 
 export const getLoggedInName = () => {
-  const token = JSON.parse(localStorage.getItem("token"));
+  const token = localStorage.getItem("token");
   if (token) {
     //  const decodedToken = jwtDecode(token);
     const firstName = "Bilal";
@@ -83,7 +83,7 @@ export const getLoggedInName = () => {
 };
 
 export const getRole = () => {
-  const token = JSON.parse(localStorage.getItem("token"));
+  const token = localStorage.getItem("token");
   if (token) {
     const decodedToken = {
       email: "abdul.ahad@intelligenes.net",

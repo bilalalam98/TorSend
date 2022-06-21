@@ -18,6 +18,8 @@ import CustomizedRadios from "components/Radio";
 import { auth } from "utils/apiMethods.js";
 import { useFormik } from "formik";
 import * as yup from "yup";
+import { NotificationManager } from "components/ReactNotifiaction";
+import { apiErrorHandler } from "helpers/apiErrorHandler";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -130,11 +132,15 @@ const Login = () => {
       };
       try {
         let result = await auth.login(body);
-        // localStorage.setItem("token", true);
-        history.push("/admin/dashboard");
-        console.log(result);
+        if (result?.status === 200) {
+          console.log(result?.data.data.token);
+          NotificationManager.success("You have logged in successfully");
+          localStorage.setItem("token", result?.data.data.token);
+          history.push("/admin/dashboard");
+        }
       } catch (err) {
         console.log(err);
+        apiErrorHandler(err, history);
       }
     },
     validationSchema: loginSchema,
@@ -230,8 +236,10 @@ const Login = () => {
               </Button>
               <Grid container>
                 <Grid item xs>
-                  <h7 style={{ color: "#aaaaaa" }}>
-                    Don&apos;t have an account?{"   "}
+                  <span>
+                    <a style={{ color: "#aaaaaa" }}>
+                      Don&apos;t have an account?
+                    </a>
                     <Link
                       onClick={Register}
                       variant="body2"
@@ -239,7 +247,7 @@ const Login = () => {
                     >
                       {"Register"}
                     </Link>
-                  </h7>
+                  </span>
                 </Grid>
               </Grid>
             </form>

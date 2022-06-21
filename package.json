@@ -7,6 +7,7 @@
   "dependencies": {
     "@material-ui/core": "4.11.4",
     "@material-ui/icons": "4.11.2",
+    "@mui/lab": "^5.0.0-alpha.86",
     "axios": "^0.27.2",
     "chart.js": "^3.8.0",
     "chartist": "0.10.1",

@@ -40,7 +40,7 @@ export const getRoutes = (routes) => {
 };
 
 export const getActiveTabIndex = () => {
-  const token = JSON.parse(localStorage.getItem("token"));
+  const token = localStorage.getItem("token");
   if (token) {
     const decodedToken = {
       email: "abdul.ahad@intelligenes.net",

@@ -15,7 +15,7 @@ const getCurrentLayout = (requestedLayout, requestedPath) => {
 };
 
 const ProtectedRoute = () => {
-  const userToken = JSON.parse(localStorage.getItem("token"));
+  const userToken = localStorage.getItem("token");
 
   let loggedInRole = "";
 
@@ -27,7 +27,7 @@ const ProtectedRoute = () => {
     };
     loggedInRole = decodedToken.role;
   }
-  if (userToken && loggedInRole === "admin") {
+  if (userToken) {
     const requestedPath = window.location.pathname;
     const requestedLayout = requestedPath.split("/")[1];
     console.log(requestedPath, requestedLayout);
