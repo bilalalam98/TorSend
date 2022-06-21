@@ -147,8 +147,8 @@ const useStyles = makeStyles((theme) => ({
 
 const StartingPage = () => {
   const classes = useStyles();
-  const [show, setShow] = React.useState(false);
   const history = useHistory();
+  const [show, setShow] = React.useState(false);
   const Singin = () => {
     history.push("/auth/admin");
   };
@@ -209,7 +209,9 @@ const StartingPage = () => {
                     fontSize: "20px",
                     color: "white",
                     fontWeight: "600",
+                    cursor: "pointer",
                   }}
+                  onClick={() => history.push("/auth/signup")}
                 >
                   Signup
                 </a>
@@ -218,7 +220,9 @@ const StartingPage = () => {
                     fontSize: "20px",
                     color: "white",
                     fontWeight: "600",
+                    cursor: "pointer",
                   }}
+                  onClick={() => history.push("/auth/signin")}
                 >
                   Signin
                 </a>
