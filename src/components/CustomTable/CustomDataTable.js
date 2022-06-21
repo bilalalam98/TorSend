@@ -120,7 +120,7 @@ const CustomDataTable = ({ data }) => {
                             display: "inline",
                           }}
                         >
-                          recepient’smail@gmail.com
+                          {row.metadata.to_email}
                         </a>
                         <a
                           style={{

@@ -151,7 +151,7 @@ const Signup = () => {
         },
         //username: values.firstname + Math.floor(Math.random() * 100),
         phone_number: "0" + values.phone_number,
-        plan_id: values.plan_id,
+        plan_id: parseInt(values.plan_id),
       };
       try {
         console.log(body);
